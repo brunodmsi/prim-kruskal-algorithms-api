@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Interface Amigável</title>
+</head>
+<body>
+  <select name="select-algorithm" id="select">
+    <option value="" disabled selected>Selecione</option>
+    <option value="KRUSKAL">Kruskal</option>
+    <option value="PRIM">Prim</option>
+  </select>
+
+  <button id="button">Buscar</button>
+
+  <div id="algorithm"></div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <script>
+    const divElement = document.querySelector('#algorithm');
+    const selectElement = document.querySelector("#select");
+    const buttonElement = document.querySelector("#button");
+
+    let algorithm = selectElement.value;
+    $(selectElement).change(function() {
+      algorithm = $(this).val()
+    })
+
+    $(buttonElement).click(function() {
+      $.ajax({
+        url: `http://localhost:8080/find-path?algorithm=${algorithm}`,
+      }).done(function(data) {
+        const child = document.createElement("p");
+        child.innerHTML = data;
+        divElement.appendChild(child)
+      })
+      })
+  </script>
+</body>
+</html>

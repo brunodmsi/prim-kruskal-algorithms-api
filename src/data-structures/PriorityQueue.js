@@ -1,4 +1,4 @@
-import MinHeap from '.MinHeap';
+import MinHeap from './MinHeap';
 import Comparator from '../utils/Comparator';
 
 // It is the same as min heap except that when comparing two elements

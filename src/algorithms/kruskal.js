@@ -1,6 +1,6 @@
-import Graph from '../data-structures/graph/Graph';
-import QuickSort from '../sorting/quick-sort/QuickSort';
-import DisjointSet from '../data-structures/disjoint-set/DisjointSet';
+import Graph from '../graph/Graph';
+import QuickSort from '../sorting/QuickSort';
+import DisjointSet from '../data-structures/DisjointSet/DisjointSet';
 
 /**
  * @param {Graph} graph
